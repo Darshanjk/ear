@@ -23,6 +23,7 @@ async def home_predict(request: Request, file: UploadFile = File(...)):
         result = utils.get_result(image_file=file)
     except Exception as ex:
         error = ex
+        print(error)
     return templates.TemplateResponse("index.html", {"request": request, "result": result , "error": error})
 
 
