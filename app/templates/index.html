@@ -86,7 +86,7 @@
                     {% if result.image_data %}
                     <img class="h-48 w-auto rounded shadow-sm" src='{{result.image_data}}' alt="{{result.filename}}" />
                     {% endif %}
-                    <div>
+                    <div class="text-center">
                         <p class="text-gray-600 font-semibold text-center capitalize">Result: {{
                             result.predictions.class_name }}
                         </p>

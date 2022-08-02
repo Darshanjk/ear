@@ -17,7 +17,7 @@ def to_numpy(tensor):
     return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
 
 # classes
-class_names = ['normal', 'ome']
+class_names = ['normal', 'presence of otits media']
 
 def transform_image(image_bytes):
     my_transforms = transforms.Compose([transforms.Resize(255),
