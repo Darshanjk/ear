@@ -51,6 +51,15 @@ To deploy this project merge your changes to the main branch.
 - Frontend : https://otitis-media-detection.vercel.app 
 - Backend : https://ear-care-iq.up.railway.app
 
+#### Preview
+![image](https://user-images.githubusercontent.com/46085301/218257473-9f37c7ed-6b37-4a5a-9f53-9ce41173941d.png)
+
+#### System Architecture
+![image](https://user-images.githubusercontent.com/46085301/218257587-82b1a5e6-d750-4c83-bfc8-7cc667c465b3.png)
+
+#### Some Examples
+![image](https://user-images.githubusercontent.com/46085301/218257618-ed84b01e-c34f-4c04-a0a7-9360e46f68b2.png)
+
 ## Tech Stack
 
 **Client:** NextJs, TailwindCSS
