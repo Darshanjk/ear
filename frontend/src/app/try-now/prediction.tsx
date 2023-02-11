@@ -4,23 +4,25 @@ import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 
 export default function Prediction() {
-  const formRef = useRef(null);
-  const [path, setPath] = useState(null);
-  const [file, setFile] = useState(null);
-  const [results, setResults] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [path, setPath] = useState<string>("");
+  const [file, setFile] = useState<any>();
+  const [results, setResults] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
 
   useEffect(() => {
-    if (file) {
+    if (file ) {
       setPath(URL.createObjectURL(file));
     }
   }, [file])
 
-  const handleImageChange = (e) => {
-    setFile(e.target.files[0])
+  const handleImageChange = (e: any) => {
+    if (e.target.files) {
+      setFile(e.target.files[0]);
+  }
   };
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true)
     const formData = new FormData();
@@ -46,8 +48,10 @@ export default function Prediction() {
   };
   const handleClear = () => {
     setResults(null)
-    setPath(null)
-    formRef.current.reset();
+    setPath("")
+    if(formRef.current){
+      formRef.current.reset();
+    }
   }
 
   return (
@@ -60,9 +64,9 @@ export default function Prediction() {
         {path ? (
           <div className="flex flex-col space-y-2">
             <h3 className="text-center text-sky-600">Image Preview</h3>
-            <div className="flex w-64 h-48 relative">
+            <div className="flex w-64 h-48 relative rounded-md overflow-hidden ">
               <Image
-                className=" object-cover  rounded "
+                className="object-contain rounded"
                 src={path}
                 alt="Preview"
                 fill
@@ -83,7 +87,7 @@ export default function Prediction() {
               <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"></path>
               <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
             </svg>
-            <span className="mt-2 text-sm">Select a CXR image file</span>
+            <span className="mt-2 text-sm">Select a image</span>
 
             <input
               type="file"

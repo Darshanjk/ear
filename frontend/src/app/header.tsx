@@ -23,7 +23,7 @@ export default function Header({}: Props) {
       ),
       title: (
         <>
-          Voyage <span className="text-pink-600">Imaging</span>
+          EarCare <span className="text-pink-600">IQ</span>
         </>
       ),
     },
