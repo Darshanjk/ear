@@ -13,7 +13,8 @@ from pathlib import Path
 # model
 
 BASE_DIR = Path(__file__).resolve().parent
-FILE_NAME = "tuberModel.onnx"
+# FILE_NAME = "tuberModel.onnx"
+FILE_NAME = "ome.onnx"
 MODEL_PATH = os.path.join(BASE_DIR, FILE_NAME)
 
 ort_session = onnxruntime.InferenceSession(MODEL_PATH)
@@ -24,7 +25,8 @@ def to_numpy(tensor):
 
 
 # classes
-class_names = ['normal', 'tuberculosis']
+# class_names = ['normal', 'tuberculosis']
+class_names = ['normal', 'presence of otits media']
 
 
 def transform_image(image_bytes):

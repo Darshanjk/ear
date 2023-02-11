@@ -11,8 +11,8 @@ from fastapi_jwt_auth.exceptions import AuthJWTException
 
 # Define application
 app = FastAPI(
-    title="Voyage Imaging app",
-    description="Voyage Imaging app!",
+    title="EarCareIQ app",
+    description="EarCareIQ app!",
     version="0.1",
 )
 
@@ -38,7 +38,7 @@ def authjwt_exception_handler(request: Request, exc: AuthJWTException):
 @app.get("/")
 def index():
     """Return a welcome message."""
-    return {"message": "Welcome to Voyage Imaging app!"}
+    return {"message": "Welcome to EarCareIQ app!"}
 
 
 @app.on_event("startup")
