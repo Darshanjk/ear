@@ -1,10 +1,8 @@
 "use client";
-
-import userState from "@/lib/atoms";
-import { useAuth } from "@/lib/auth";
 import React, { useState, Fragment } from "react";
 import { useRecoilState } from "recoil";
-
+import userState from "@/lib/atoms";
+import { useAuth } from "@/lib/auth";
 export default function Header({ title }) {
   const {logout}= useAuth()
   const [user, setUser] = useRecoilState(userState);
