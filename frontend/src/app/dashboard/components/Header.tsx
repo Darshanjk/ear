@@ -3,7 +3,7 @@ import React, { useState, Fragment } from "react";
 import { useRecoilState } from "recoil";
 import userState from "@/lib/atoms";
 import { useAuth } from "@/lib/auth";
-export default function Header({ title }) {
+export default function Header({ title }:{title:any}) {
   const {logout}= useAuth()
   const [user, setUser] = useRecoilState(userState);
 
@@ -107,7 +107,6 @@ export default function Header({ title }) {
                   className={`${
                     dropdown ? ` ` : `hidden`
                   } fixed inset-0 w-full h-full cursor-default`}
-                  tabIndex="-1"
                 ></button>
               </div>
               <div
@@ -117,13 +116,11 @@ export default function Header({ title }) {
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="user-menu-button"
-                tabIndex="-1"
               >
                 <a
                   href="#"
                   className="block px-4 py-2 text-sm text-gray-700 focus:outline-none bg-sky-50 hover:bg-sky-100"
                   role="menuitem"
-                  tabIndex="-1"
                   id="user-menu-item-0"
                 >
                   Your Profile
@@ -133,7 +130,6 @@ export default function Header({ title }) {
                   href="#"
                   className="block px-4 py-2 text-sm text-gray-700 focus:outline-none hover:bg-sky-100"
                   role="menuitem"
-                  tabIndex="-1"
                   id="user-menu-item-1"
                 >
                   Settings
@@ -143,7 +139,6 @@ export default function Header({ title }) {
                   href="#"
                   className="block px-4 py-2 text-sm text-gray-700 focus:outline-none hover:bg-sky-100"
                   role="menuitem"
-                  tabIndex="-1"
                   id="user-menu-item-2"
                   onClick={handleSignOut}
                 >
@@ -204,7 +199,6 @@ export default function Header({ title }) {
         <button
           onClick={handleClick}
           className={`${menu ? ` ` : `hidden`} fixed inset-0 w-full h-full`}
-          tabIndex="-1"
         ></button>
         <button
           onClick={handleClick}
