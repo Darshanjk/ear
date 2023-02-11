@@ -4,8 +4,8 @@ import Footer from "@/app/footer";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/lib/auth";
-import userState from "@/lib/atoms";
+import { useAuth } from "../../lib/auth";
+import userState from "../../lib/atoms";
 
 type errors = {
   detail?: string;
