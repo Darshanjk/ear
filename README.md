@@ -44,10 +44,9 @@ $ npm run dev
 ```
 
 ## Deployment
-
 To deploy this project merge your changes to the main branch.
 
-Deployed URLS:
+#### Deployed URLS:
 
 - Frontend : https://otitis-media-detection.vercel.app 
 - Backend : https://ear-care-iq.up.railway.app
