@@ -2,7 +2,6 @@
 
 Otitis Media Detection using Transfer Learning is a deep learning technique that uses pre-trained models to quickly and accurately diagnose middle ear infections. The method involves fine-tuning pre-trained models on images of the middle ear to detect signs of Otitis Media. This approach can significantly reduce the time and error associated with manual inspections and improve the accuracy of diagnosis, making it a valuable tool for medical professionals.
 
-
 ## Run Locally
 
 Clone the project
@@ -20,8 +19,8 @@ $ cd frontend
 # Install dependencies
 $ npm install
 
-# Add API_URL to the .env.local: This is Production URL
-NEXT_PUBLIC_API_URL=https://ear-care-iq.up.railway.app
+# copy env file
+cp .env.example .env.local
 
 # Start the server
 $ npm run dev
@@ -31,33 +30,41 @@ $ npm run dev
 
 ```bash
 # Go to the project directory
-$ cd frontend
+$ cd backend
+
+# create env
+$ python -m venv venv
+$ source venv/bin/activate
 
 # Install dependencies
-$ npm install
+$ pip install -r requirements.txt
 
-# Add API_URL to the .env.local
-NEXT_PUBLIC_API_URL=https://ear-care-iq.up.railway.app
+# copy env file
+cp .env.example .env
 
 # Start the server
-$ npm run dev
+$ python manage.py serve
 ```
 
 ## Deployment
+
 To deploy this project merge your changes to the main branch.
 
 #### Deployed URLS:
 
-- Frontend : https://otitis-media-detection.vercel.app 
+- Frontend : https://otitis-media-detection.vercel.app
 - Backend : https://ear-care-iq.up.railway.app
 
 #### Preview
+
 ![image](https://user-images.githubusercontent.com/46085301/218257473-9f37c7ed-6b37-4a5a-9f53-9ce41173941d.png)
 
 #### System Architecture
+
 ![image](https://user-images.githubusercontent.com/46085301/218257587-82b1a5e6-d750-4c83-bfc8-7cc667c465b3.png)
 
 #### Some Examples
+
 ![image](https://user-images.githubusercontent.com/46085301/218257618-ed84b01e-c34f-4c04-a0a7-9360e46f68b2.png)
 
 ## Tech Stack
@@ -65,8 +72,6 @@ To deploy this project merge your changes to the main branch.
 **Client:** NextJs, TailwindCSS
 
 **Server:** Python, FastAPI, PyTorch
-
-
 
 ## Authors
 
