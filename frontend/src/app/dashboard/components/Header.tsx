@@ -19,7 +19,7 @@ export default function Header({ title }:{title:any}) {
   const handleSignOut = () => {
     logout({setUser})
   };
-  const navigation = ["Dashboard", "Posts", "Projects", "Calendar", "Reports"];
+  const navigation = ["Dashboard", "Patients", "Records", "Reports"];
   return (
     <div className="w-full shadow">
       <header className="bg-sky-800">
