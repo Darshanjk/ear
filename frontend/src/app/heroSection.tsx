@@ -19,7 +19,7 @@ export default function HeroSection({}: Props) {
       <div className="mx-auto grid max-w-7xl grid-cols-1 pt-8 md:grid-cols-2">
         {/* Main Content */}
         <div className="flex flex-col space-y-3 py-12">
-          <h1 className="flex flex-col space-y-5 text-6xl font-bold text-sky-800">
+          <h1 className="flex flex-col space-y-5 text-4xl sm:text-5xl lg:text-6xl font-bold text-sky-800">
             <span> For Best </span>
             <span>
               <span className="border border-sky-500 px-4"> Medical</span> and{" "}
@@ -42,8 +42,8 @@ export default function HeroSection({}: Props) {
           </div>
         </div>
         {/* Images */}
-        <div className="relative">
-          <div className="absolute left-16 top-1/3 z-10 -mt-2 h-48 w-96">
+        <div className="relative flex flex-col min-h-[38vh]">
+          <div className="absolute hidden sm:flex lg:left-16 top-1/3 z-10 -mt-2 h-48 w-96">
             <Image
               className=" object-contain "
               src={content?.images?.a}
@@ -52,7 +52,7 @@ export default function HeroSection({}: Props) {
               alt="Doctor a"
             />
           </div>
-          <div className="absolute right-4 top-4 z-10 h-[204px] w-[204px]">
+          <div className="absolute hidden sm:flex right-4 top-4 z-10 h-[204px] w-[204px]">
             <Image
               className="object-cover"
               src={content?.images?.b}
@@ -71,7 +71,7 @@ export default function HeroSection({}: Props) {
             />
           </div>
           {/* patterns */}
-          <div className="absolute left-60 bottom-0 z-10 flex flex-row">
+          <div className="absolute lg:left-60 bottom-0 z-10 flex flex-row">
             <div className="flex flex-col items-end justify-end">
               <div className="h-10 w-10 rounded-full bg-emerald-500"></div>
               <div className="h-20 w-20 rounded-tl-full bg-yellow-400"></div>

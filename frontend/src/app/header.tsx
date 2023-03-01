@@ -48,12 +48,12 @@ export default function Header({}: Props) {
       },
     ],
     button: {
-      title:"Login",
-      link:"/login"
-    }
+      title: "Login",
+      link: "/login",
+    },
   };
   return (
-    <header className="flex w-full py-6 border-b">
+    <header className="flex w-full py-6 border-b px-4">
       <nav className="mx-auto flex w-full max-w-7xl flex-row items-center justify-between">
         {/* Logo */}
         <div className="flex cursor-pointer flex-row items-center space-x-2">
@@ -63,7 +63,7 @@ export default function Header({}: Props) {
           </span>
         </div>
         {/* Menu Items */}
-        <ul className="flex flex-row space-x-8">
+        <ul className="hidden md:flex flex-row space-x-8">
           {content?.menus &&
             content?.menus.map((item, i) => (
               <Link href={item?.link} key={i}>
@@ -80,9 +80,9 @@ export default function Header({}: Props) {
 
         {/* Buttons */}
         <Link href={content?.button?.link}>
-        <button className="rounded-md bg-sky-900 px-6 py-3 font-semibold text-white transition hover:bg-sky-900/90 focus:outline-none">
-          {content?.button?.title}
-        </button>
+          <button className="rounded-md bg-sky-900 px-6 py-3 font-semibold text-white transition hover:bg-sky-900/90 focus:outline-none">
+            {content?.button?.title}
+          </button>
         </Link>
       </nav>
     </header>

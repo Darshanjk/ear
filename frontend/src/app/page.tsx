@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
 
       {/* Main */}
-      <main className="flex flex-col space-y-10">
+      <main className="flex flex-col space-y-10 px-4">
         {/* Hero Section  */}
         <HeroSection />
 
