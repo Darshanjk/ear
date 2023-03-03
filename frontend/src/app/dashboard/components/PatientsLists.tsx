@@ -54,7 +54,7 @@ export default function PatientsLists({ data }: { data: any }) {
                   {data &&
                     data.length >= 0 &&
                     data.map((item: any, i: any) => (
-                      <tr className="hover:bg-gray-50 transition">
+                      <tr key={i} className="hover:bg-gray-50 transition">
                         <td className="text-center">
                           <span>{i + 1}</span>
                         </td>
@@ -70,7 +70,7 @@ export default function PatientsLists({ data }: { data: any }) {
                             </div>
                             <div className="ml-4 space-y-1">
                               <Link
-                                href={`/dashboard/${encodeURIComponent(
+                                href={`/dashboard/patients/${encodeURIComponent(
                                   item?.id
                                 )}`}
                                 key={i}

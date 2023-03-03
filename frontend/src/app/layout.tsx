@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Poppins } from "@next/font/google";
+import { Poppins } from "next/font/google";
 import RecoilProvider from "./recoil";
 
 const poppins = Poppins({

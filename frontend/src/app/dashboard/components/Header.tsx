@@ -4,8 +4,12 @@ import { useRecoilState } from "recoil";
 import userState from "@/lib/atoms";
 import { useAuth } from "@/lib/auth";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function Header({ title }: { title: any }) {
   const { logout } = useAuth();
+  const pathname = usePathname();
+
   const [user, setUser] = useRecoilState(userState);
 
   const [menu, setMenu] = useState(false);
@@ -23,15 +27,15 @@ export default function Header({ title }: { title: any }) {
   const navigation = [
     {
       title: "Dashboard",
-      link: "",
+      link: "/dashboard",
     },
     {
       title: "Patients",
-      link: "/patients",
+      link: "/dashboard/patients",
     },
     {
       title: "Predict Otitis",
-      link: "/prediction",
+      link: "/dashboard/prediction",
     },
   ];
   return (
@@ -56,11 +60,11 @@ export default function Header({ title }: { title: any }) {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {navigation.map((item, itemIdx) =>
-                  itemIdx === 0 ? (
+                  item?.link === pathname ? (
                     <Fragment key={itemIdx}>
                       {/* Current: "bg-sky-900 text-white", Default: "text-sky-300 hover:bg-sky-700 hover:text-white" */}
                       <Link
-                        href={`/dashboard/${encodeURIComponent(item?.link)}`}
+                        href={item?.link}
                         className="bg-sky-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                       >
                         {item?.title}
@@ -69,7 +73,7 @@ export default function Header({ title }: { title: any }) {
                   ) : (
                     <Link
                       key={itemIdx}
-                      href="#"
+                      href={item?.link}
                       className="text-sky-300 hover:bg-sky-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:bg-sky-900"
                     >
                       {item?.title}
@@ -184,24 +188,24 @@ export default function Header({ title }: { title: any }) {
             <div className="sm:hidden">
               <div className="flex flex-col items-baseline space-y-4 px-6 py-2">
                 {navigation.map((item, itemIdx) =>
-                  itemIdx === 0 ? (
-                    <Fragment key={item}>
+                  item?.link === pathname ? (
+                    <Fragment key={itemIdx}>
                       {/* Current: "bg-sky-900 text-white", Default: "text-sky-300 hover:bg-sky-700 hover:text-white" */}
-                      <a
-                        href="#"
-                        className="bg-sky-900 text-white px-6 py-2 rounded-md text-sm font-medium"
+                      <Link
+                        href={item?.link}
+                        className="bg-sky-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                       >
-                        {item}
-                      </a>
+                        {item?.title}
+                      </Link>
                     </Fragment>
                   ) : (
-                    <a
-                      key={item}
-                      href="#"
-                      className="text-sky-300 hover:bg-sky-700 hover:text-white px-6 py-2 rounded-md text-sm font-medium"
+                    <Link
+                      key={itemIdx}
+                      href={item?.link}
+                      className="text-sky-300 hover:bg-sky-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium focus:bg-sky-900"
                     >
-                      {item}
-                    </a>
+                      {item?.title}
+                    </Link>
                   )
                 )}
               </div>
