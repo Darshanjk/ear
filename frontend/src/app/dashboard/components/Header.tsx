@@ -3,8 +3,9 @@ import React, { useState, Fragment } from "react";
 import { useRecoilState } from "recoil";
 import userState from "@/lib/atoms";
 import { useAuth } from "@/lib/auth";
-export default function Header({ title }:{title:any}) {
-  const {logout}= useAuth()
+import Link from "next/link";
+export default function Header({ title }: { title: any }) {
+  const { logout } = useAuth();
   const [user, setUser] = useRecoilState(userState);
 
   const [menu, setMenu] = useState(false);
@@ -17,7 +18,7 @@ export default function Header({ title }:{title:any}) {
   };
 
   const handleSignOut = () => {
-    logout({setUser})
+    logout({ setUser });
   };
   const navigation = ["Dashboard", "Patients", "Records", "Reports"];
   return (
@@ -25,7 +26,7 @@ export default function Header({ title }:{title:any}) {
       <header className="bg-sky-800">
         <div className="max-w-7xl container mx-auto px-8 sm:px-14 lg:px-20 flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="/dashboard">
+            <Link href="/">
               <div className="flex-shrink-0">
                 <img
                   className="h-8 w-8 hidden sm:block"
@@ -38,7 +39,7 @@ export default function Header({ title }:{title:any}) {
                   alt="EarCareIQ"
                 />
               </div>
-            </a>
+            </Link>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {navigation.map((item, itemIdx) =>
@@ -127,7 +128,6 @@ export default function Header({ title }:{title:any}) {
                 </a>
 
                 <a
-                  href="#"
                   className="block px-4 py-2 text-sm text-gray-700 focus:outline-none hover:bg-sky-100"
                   role="menuitem"
                   id="user-menu-item-1"
@@ -135,15 +135,14 @@ export default function Header({ title }:{title:any}) {
                   Settings
                 </a>
 
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 focus:outline-none hover:bg-sky-100"
+                <div
+                  className="block px-4 py-2 text-sm cursor-pointer text-gray-700 focus:outline-none hover:bg-sky-100"
                   role="menuitem"
                   id="user-menu-item-2"
                   onClick={handleSignOut}
                 >
                   Sign out
-                </a>
+                </div>
               </div>
             </div>
           </div>
