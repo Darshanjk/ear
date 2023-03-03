@@ -1,9 +1,15 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { useRecoilValue } from "recoil";
+import userState from "@/lib/atoms";
 
 type Props = {};
 
 export default function Header({}: Props) {
+  const user = useRecoilValue(userState);
+
   const content = {
     logo: {
       icon: (
@@ -48,8 +54,8 @@ export default function Header({}: Props) {
       },
     ],
     button: {
-      title: "Login",
-      link: "/login",
+      title: user?.accessToken ? "Dashboard" : "Login",
+      link: user?.accessToken ? "/dashboard" : "/login",
     },
   };
   return (
