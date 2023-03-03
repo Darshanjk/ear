@@ -1,7 +1,7 @@
 "use client";
 import Header from "@/app/header";
 import Footer from "@/app/footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth";
@@ -23,9 +23,11 @@ export default function Page() {
   const [user, setUser] = useRecoilState(userState);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // if(user.accessToken){
-  //   router.push("/dashboard")
-  // }
+  useEffect(() => {
+    if (user.accessToken) {
+      router.push("/dashboard");
+    }
+  }, [user]);
 
   const submitForm = async (event: any) => {
     event.preventDefault();
