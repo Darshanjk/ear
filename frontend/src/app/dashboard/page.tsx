@@ -1,7 +1,10 @@
+export const metadata = {
+  title: "Dashboard | EarCareIQ | A Healthcare App",
+};
+
 import React from "react";
 import Layout from "./components/Layout";
-import Overview from "./components/Overview";
-import Activity from "./components/Activity";
+
 import Patients from "./components/Patients";
 import { cookies, headers } from "next/headers";
 import axios from "axios";

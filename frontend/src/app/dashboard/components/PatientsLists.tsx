@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function PatientsLists({ data }: { data: any }) {
@@ -17,6 +18,12 @@ export default function PatientsLists({ data }: { data: any }) {
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      S.N.
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-8 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
                       Name
                     </th>
@@ -47,8 +54,11 @@ export default function PatientsLists({ data }: { data: any }) {
                   {data &&
                     data.length >= 0 &&
                     data.map((item: any, i: any) => (
-                      <tr key={i}>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                      <tr className="hover:bg-gray-50 transition">
+                        <td className="text-center">
+                          <span>{i + 1}</span>
+                        </td>
+                        <td className="px-8 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="flex-shrink-0 h-10 w-10">
                               <img
@@ -58,10 +68,18 @@ export default function PatientsLists({ data }: { data: any }) {
                                 alt=""
                               />
                             </div>
-                            <div className="ml-4">
-                              <div className="text-sm font-medium text-gray-900">
-                                {item?.name}
-                              </div>
+                            <div className="ml-4 space-y-1">
+                              <Link
+                                href={`/dashboard/${encodeURIComponent(
+                                  item?.id
+                                )}`}
+                                key={i}
+                              >
+                                <div className="text-sm font-medium underline underline-offset-2 text-blue-600">
+                                  {item?.name}
+                                </div>
+                              </Link>
+
                               <div className="text-sm text-gray-500">
                                 {item?.age}
                               </div>

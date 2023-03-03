@@ -23,11 +23,11 @@ export default function Page() {
   const [user, setUser] = useRecoilState(userState);
   const [loading, setLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (user.accessToken) {
-      router.push("/dashboard");
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user.accessToken) {
+  //     router.push("/dashboard");
+  //   }
+  // }, [user]);
 
   const submitForm = async (event: any) => {
     event.preventDefault();
