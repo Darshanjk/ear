@@ -8,6 +8,7 @@ import { cookies, headers } from "next/headers";
 import axios from "axios";
 import Layout from "./components/Layout";
 import Overview from "./components/Overview";
+
 async function getData() {
   const cookieStore = cookies();
   const access = cookieStore.get("access");
@@ -17,7 +18,7 @@ async function getData() {
     },
   };
   const { data } = await axios.get(
-    process.env.API_URL + "/api/v1/patients/",
+    process.env.API_URL + "/api/v1/analytics/",
     userConfig
   );
   // The return value is *not* serialized
@@ -37,7 +38,7 @@ export default async function Dashboard() {
     <div className="flex flex-col items-center top-0 min-h-screen">
       <Layout title="Dashboard">
         <main className="max-w-7xl container mx-auto px-8 sm:px-14 lg:px-20 w-full min-h-[75vh]">
-          <Overview />
+          <Overview data={data} />
           {/* <Activity /> */}
           {/* <Patients data={data} /> */}
         </main>

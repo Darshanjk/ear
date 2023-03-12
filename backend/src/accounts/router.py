@@ -1,5 +1,6 @@
 import uuid
 import json
+import datetime
 from fastapi import APIRouter, HTTPException, Depends, Request, Response, status
 from fastapi.responses import JSONResponse
 from fastapi_jwt_auth import AuthJWT
@@ -12,7 +13,6 @@ from .models import User
 from src.database import database
 from .schemas import UserCreate, UserResponse, UserLogin
 router = APIRouter()
-
 # in production you can use Settings management
 # from pydantic to get secret key from .env
 
@@ -41,7 +41,9 @@ async def login(user: UserLogin, Authorize: AuthJWT = Depends()):
         "email": existing_user.email,
         "is_admin": existing_user.is_admin,
     }
-    access_token = Authorize.create_access_token(subject=json.dumps(data))
+    expires = datetime.timedelta(days=1)
+    access_token = Authorize.create_access_token(
+        subject=json.dumps(data), expires_time=expires)
     return {"access_token": access_token}
 
 

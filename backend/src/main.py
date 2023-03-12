@@ -1,7 +1,7 @@
 from fastapi import FastAPI, status, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi.staticfiles import StaticFiles
 from .database import database
 from typing import *
 
@@ -15,6 +15,7 @@ app = FastAPI(
     description="OtoScopeAI app!",
     version="0.1",
 )
+app.mount("/static", StaticFiles(directory="./static"), name="static")
 
 app.include_router(router)
 origins = ["*"]
