@@ -1,4 +1,7 @@
-import Image from "next/image";
+export const metadata = {
+  title: "EarCareIQ | A Healthcare App",
+};
+
 import Features from "@/app/features";
 import Header from "@/app/header";
 import Footer from "@/app/footer";

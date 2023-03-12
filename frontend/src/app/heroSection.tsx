@@ -6,31 +6,34 @@ type Props = {};
 
 export default function HeroSection({}: Props) {
   const content = {
-    description: "Join us and be a life saver for each other.",
+    description: "Quick and accurate ear infection detection with EarCheckAI.",
     cta_button: "Try Now",
     images: {
       a: "/doctor-using-laptop-thinking.jpg",
-      b: "/young-female-doctor.jpg",
-      c: "/successful-medical-team.jpg",
+      b: "/doctor-checking-patient.png",
+      c: "/ear-brain.png",
     },
   };
   return (
     <section className="w-full">
       <div className="mx-auto grid max-w-7xl grid-cols-1 pt-8 md:grid-cols-2">
         {/* Main Content */}
-        <div className="flex flex-col space-y-3 py-12">
-          <h1 className="flex flex-col space-y-5 text-4xl sm:text-5xl lg:text-6xl font-bold text-sky-800">
-            <span> For Best </span>
+        <div className="flex flex-col space-y-8 py-24">
+          <h1 className="flex flex-col text-4xl sm:text-4xl font-bold text-sky-800">
+            {/* <span> For Best </span>
             <span>
               <span className="border border-sky-500 px-4"> Medical</span> and{" "}
               <span className="text-sky-500">Health </span>{" "}
             </span>
-            <span>Care</span>
+            <span>Care</span> */}
+            <span className="text-3xl text-pink-600">Revolutionizing</span>
+            Ear Health with
+            <span className="text-sky-600">Deep Learning Technology</span>
           </h1>
           <p className="text-lg text-sky-600">{content?.description} </p>
 
           {/* Buttons */}
-          <div className="flex flex-row space-x-8 pt-10">
+          <div className="flex flex-row space-x-8 pt-6">
             <Link href="try-now">
               <button className="rounded-md bg-sky-900 px-10 py-3 font-semibold text-white transition hover:bg-sky-900/90 focus:outline-none">
                 {content?.cta_button}
