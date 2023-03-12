@@ -60,6 +60,7 @@ async def create_user(user: UserCreate):
     existing_user = await database.fetch_one(query)
     if existing_user:
         raise HTTPException(status_code=400, detail="Email already registered")
+    user.id = uuid.uuid4().hex
     user.hash_password()
     query = User.__table__.insert().values(**user.dict()).returning(User)
     data = await database.fetch_one(query)
