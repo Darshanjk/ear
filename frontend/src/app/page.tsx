@@ -1,8 +1,13 @@
-import Image from "next/image";
+export const metadata = {
+  title: "EarCareIQ | A Healthcare App",
+};
+
 import Features from "@/app/features";
 import Header from "@/app/header";
 import Footer from "@/app/footer";
 import HeroSection from "@/app/heroSection";
+import Cta from "./cta";
+import FeaturesList from "./featuresList";
 
 export default function Home() {
   return (
@@ -17,6 +22,12 @@ export default function Home() {
 
         {/* Features */}
         <Features />
+
+        {/* CTA */}
+        <Cta />
+
+        {/* Features List */}
+        <FeaturesList />
       </main>
       <Footer />
     </div>

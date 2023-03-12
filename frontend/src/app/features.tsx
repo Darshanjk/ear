@@ -1,5 +1,4 @@
 import React from "react";
-
 type Props = {};
 
 export default function Features({}: Props) {
@@ -55,6 +54,7 @@ export default function Features({}: Props) {
       description: "",
     },
   ];
+
   return (
     <section className="w-full">
       <ul className="mx-auto grid max-w-7xl grid-cols-1 rounded-t-3xl bg-sky-900 p-8 text-white md:grid-cols-3">
