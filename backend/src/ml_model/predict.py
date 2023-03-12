@@ -1,5 +1,6 @@
 import os
 import io
+import uuid
 import json
 from PIL import Image
 from torchvision import models
@@ -74,6 +75,22 @@ def get_result(image_file, is_api=False):
             "confidence": confidence
         }
     }
+    file_extension = ".jpg"  # replace with the actual file extension
+    filename = str(uuid.uuid4()) + file_extension
+    file_path = os.path.join("static", filename)
+
+    try:
+        with open(file_path, "wb") as buffer:
+            buffer.write(image_bytes)
+    except Exception as e:
+        print(f"Error writing file: {e}")
+        # handle the error here
+    else:
+        print(f"File saved to: {file_path}")
+        result["image_path"] = file_path
+
+        # continue with your code here
+
     if not is_api:
         result["image_data"] = image_data
     return result
