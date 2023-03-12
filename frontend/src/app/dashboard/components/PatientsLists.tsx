@@ -7,7 +7,6 @@ export default function PatientsLists({ data }: { data: any }) {
 
   return (
     <div className="flex flex-col p-16 bg-gray-50 items-center justify-center rounded-md min-h-[55vh]">
-      {/* <ul className="flex flex-col gap-4"> */}
       <div className="flex flex-col shadow">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -37,16 +36,16 @@ export default function PatientsLists({ data }: { data: any }) {
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Status
+                      Address
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Address
+                      Created at
                     </th>
                     <th scope="col" className="relative px-6 py-3">
-                      <span className="sr-only">Edit</span>
+                      <span className="sr-only">View</span>
                     </th>
                   </tr>
                 </thead>
@@ -94,21 +93,27 @@ export default function PatientsLists({ data }: { data: any }) {
                             {"Patient"}
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Active
-                          </span>
-                        </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                           {item?.address}
                         </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          {item?.created_at && (
+                            <span>
+                              {new Date(item?.created_at).toDateString()}
+                            </span>
+                          )}
+                        </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a
-                            href="#"
-                            className="text-indigo-600 hover:text-indigo-900"
+                          <Link
+                            href={`/dashboard/patients/${encodeURIComponent(
+                              item?.id
+                            )}`}
+                            key={i}
                           >
-                            Edit
-                          </a>
+                            <span className="px-3 py-1 transition inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 hover:bg-green-200 text-green-800">
+                              View
+                            </span>
+                          </Link>
                         </td>
                       </tr>
                     ))}
