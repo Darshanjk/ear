@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "EarCareIQ | A Healthcare App",
+  title: "OtoScopeAI | A Healthcare App",
 };
 
 import Features from "@/app/features";
@@ -8,6 +8,7 @@ import Footer from "@/app/footer";
 import HeroSection from "@/app/heroSection";
 import Cta from "./cta";
 import FeaturesList from "./featuresList";
+import WorkList from "./how_it_works";
 
 export default function Home() {
   return (
@@ -23,11 +24,15 @@ export default function Home() {
         {/* Features */}
         <Features />
 
+        {/* Features List */}
+        <FeaturesList />
+
         {/* CTA */}
         <Cta />
 
-        {/* Features List */}
-        <FeaturesList />
+
+    {/* How it works */}
+        <WorkList/>
       </main>
       <Footer />
     </div>

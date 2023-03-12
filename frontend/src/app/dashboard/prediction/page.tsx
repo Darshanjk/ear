@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Prediction | Dashboard | EarCareIQ | A Healthcare App",
+  title: "Prediction | Dashboard | OtoScopeAI | A Healthcare App",
 };
 
 import Prediction from "@/app/try-now/prediction";
