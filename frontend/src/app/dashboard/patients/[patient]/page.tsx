@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Patient | Dashboard | EarCareIQ | A Healthcare App",
+  title: "Patient | Dashboard | OtoScopeAI | A Healthcare App",
 };
 
 import React from "react";

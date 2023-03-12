@@ -48,12 +48,12 @@ export default function Header({ title }: { title: any }) {
                 <img
                   className="h-8 w-8 hidden sm:block"
                   src="/favicon.ico"
-                  alt="EarCareIQ"
+                  alt="OtoScopeAI"
                 />
                 <img
                   className="h-9 w-auto sm:hidden"
                   src="/footer-logo.svg"
-                  alt="EarCareIQ"
+                  alt="OtoScopeAI"
                 />
               </div>
             </Link>
@@ -182,7 +182,7 @@ export default function Header({ title }: { title: any }) {
               <img
                 className="h-9 w-auto sm:hidden"
                 src="footer-logo.svg"
-                alt="EarCareIQ"
+                alt="OtoScopeAI"
               />
             </div>
             <div className="sm:hidden">

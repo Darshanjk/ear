@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function FeaturesList() {
   const features = {
-    title: "Why Choose EarCheckAI?",
+    title: "Why Choose OtoScopeAI?",
     background: "/features-bg-1.avif",
     features: [
       "Accurate ear infection diagnosis using deep learning algorithms",

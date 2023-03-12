@@ -29,7 +29,7 @@ export default function Header({}: Props) {
       ),
       title: (
         <>
-          EarCare <span className="text-pink-600">IQ</span>
+         OtoScope<span className="text-pink-600">AI</span>
         </>
       ),
     },
