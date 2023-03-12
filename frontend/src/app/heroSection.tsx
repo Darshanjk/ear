@@ -6,7 +6,7 @@ type Props = {};
 
 export default function HeroSection({}: Props) {
   const content = {
-    description: "Quick and accurate ear infection detection with EarCheckAI.",
+    description: "Quick and accurate ear infection detection with OtoScopeAI.",
     cta_button: "Try Now",
     images: {
       a: "/doctor-using-laptop-thinking.jpg",
