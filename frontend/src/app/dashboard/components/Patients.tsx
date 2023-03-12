@@ -1,11 +1,10 @@
 "use client";
 import userState from "@/lib/atoms";
-import { fetcher } from "@/lib/axios";
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, startTransition } from "react";
 import { useRecoilValue } from "recoil";
-import useSWR from "swr";
 import PatientsLists from "./PatientsLists";
 import { Dialog, Transition } from "@headlessui/react";
+import { useRouter } from "next/navigation";
 
 export default function Patients({ data }: { data: any }) {
   const user = useRecoilValue(userState);
@@ -16,6 +15,8 @@ export default function Patients({ data }: { data: any }) {
   let [address, setAddress] = useState("");
   let [gender, setGender] = useState("");
   let [phone, setPhone] = useState("");
+
+  const router = useRouter();
 
   function closeModal() {
     setIsOpen(false);
@@ -43,7 +44,13 @@ export default function Patients({ data }: { data: any }) {
       }),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        startTransition(() => {
+          // Refresh the current route and fetch new data from the server without
+          // losing client-side browser or React state.
+          router.refresh();
+        });
+      })
       .catch((res) => console.log(res));
   };
   return (
