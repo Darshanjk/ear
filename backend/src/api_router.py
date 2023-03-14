@@ -1,4 +1,4 @@
-from fastapi import APIRouter, File, UploadFile
+from fastapi import APIRouter, File, UploadFile, BackgroundTasks
 from src.accounts import router as accounts
 from src.patients import router as patients
 from src.ml_model.predict import get_result
@@ -16,5 +16,5 @@ async def api():
 
 
 @router.post("/predict")
-async def predict(file: UploadFile = File(...)):
-    return get_result(image_file=file, is_api=True)
+async def predict(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+    return get_result(image_file=file, background_tasks=background_tasks, is_api=True)

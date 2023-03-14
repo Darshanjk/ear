@@ -57,7 +57,18 @@ def get_prediction(image_bytes):
     return class_names[predicted_idx], confidence
 
 
-def get_result(image_file, is_api=False):
+def save_image(image_bytes, file_path):
+    try:
+        with open(file_path, "wb") as buffer:
+            buffer.write(image_bytes)
+    except Exception as e:
+        print(f"Error writing file: {e}")
+        # handle the error here
+    else:
+        print(f"File saved to: {file_path}")
+
+
+def get_result(image_file, background_tasks, is_api=False):
     start_time = datetime.datetime.now()
     image_bytes = image_file.file.read()
     class_name, confidence = get_prediction(image_bytes)
@@ -79,17 +90,8 @@ def get_result(image_file, is_api=False):
     filename = str(uuid.uuid4()) + file_extension
     file_path = os.path.join("static", filename)
 
-    try:
-        with open(file_path, "wb") as buffer:
-            buffer.write(image_bytes)
-    except Exception as e:
-        print(f"Error writing file: {e}")
-        # handle the error here
-    else:
-        print(f"File saved to: {file_path}")
-        result["image_path"] = file_path
-
-        # continue with your code here
+    background_tasks.add_task(save_image, image_bytes, file_path)
+    result["image_path"] = file_path
 
     if not is_api:
         result["image_data"] = image_data
