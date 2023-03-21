@@ -30,7 +30,7 @@ It is supposed that you open this repo in github codespace or gitpod.
     .
     ├── alembic/            alembic database migrations
     ├── src/                main app logic with MVC, etc
-    │   └── main.py
+    │   └── main.py         entry file
     ├── tests/              tests
     ├── manage.py           manager script
     ├── requirements.txt
