@@ -71,7 +71,7 @@ To deploy this project merge your changes to the main branch.
 
 **Client:** NextJs, TailwindCSS
 
-**Server:** Python, FastAPI, PyTorch
+**Server:** Python, FastAPI, PyTorch, ONNX
 
 ## Authors
 
