@@ -15,7 +15,7 @@ It is supposed that you open this repo in github codespace or gitpod.
     $ docker inspect postgres_voyage_imaging # "IPAddress": "172.20.0.3", find something like this
 
     #open env.py under alembic
-    # and change the ip under DATABAL to current  , leave it if the ip is same
+    # and change the ip under DATABASE_URL to current  , leave it if the ip is same
 
     # migrate to db
     # alembic revision --autogenerate -m "initial database schema migraion" -> makes migrations files
