@@ -21,7 +21,7 @@ export const metadata = {
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import RecoilProvider from "./recoil";
-
+import { Analytics } from '@vercel/analytics/react';
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -41,6 +41,8 @@ export default function RootLayout({
       <head />
       <body>
         <RecoilProvider>{children}</RecoilProvider>
+
+        <Analytics />
       </body>
     </html>
   );
