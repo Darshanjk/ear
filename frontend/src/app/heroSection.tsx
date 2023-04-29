@@ -9,9 +9,9 @@ export default function HeroSection({}: Props) {
     description: "Quick and accurate ear infection detection with OtoScopeAI.",
     cta_button: "Try Now",
     images: {
-      a: "/doctor-using-laptop-thinking.jpg",
+      a: "/ear-screening.jpg",
       b: "/doctor-checking-patient.png",
-      c: "/ear-brain.png",
+      c: "/ear-checkup.jpg",
     },
   };
   return (
@@ -46,7 +46,7 @@ export default function HeroSection({}: Props) {
         </div>
         {/* Images */}
         <div className="relative flex flex-col min-h-[38vh]">
-          <div className="absolute hidden sm:flex lg:left-16 top-1/3 z-10 -mt-2 h-48 w-96">
+          <div className="absolute hidden sm:flex lg:left-16 top-1/3 z-10 -mt-2 h-48 w-[22rem] ">
             <Image
               className=" object-contain "
               src={content?.images?.a}

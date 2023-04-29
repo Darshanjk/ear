@@ -19,7 +19,7 @@ export default function Features({}: Props) {
         </svg>
       ),
       title: "Free Support",
-      description: "",
+      description: "Available 24/7 for assistance.",
     },
     {
       icon: (
@@ -37,7 +37,7 @@ export default function Features({}: Props) {
         </svg>
       ),
       title: "Consulting",
-      description: "",
+      description: "Personalized guidance for ear health.",
     },
     {
       icon: (
@@ -51,7 +51,7 @@ export default function Features({}: Props) {
         </svg>
       ),
       title: "Online Care",
-      description: "",
+      description: "Convenient virtual healthcare services.",
     },
   ];
 
@@ -70,7 +70,7 @@ export default function Features({}: Props) {
               <div className="flex flex-col">
                 <h3 className="font-medium">{item?.title}</h3>
                 <p className="max-w-[150px] text-xs font-light ">
-                  Lorem Ipsum is simply dummy text.
+                 {item?.description ?? " Lorem Ipsum is simply dummy text."}
                 </p>
               </div>
             </li>

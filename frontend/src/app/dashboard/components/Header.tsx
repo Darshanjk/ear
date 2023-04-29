@@ -5,6 +5,7 @@ import userState from "@/lib/atoms";
 import { useAuth } from "@/lib/auth";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Header({ title }: { title: any }) {
   const { logout } = useAuth();
@@ -12,6 +13,7 @@ export default function Header({ title }: { title: any }) {
 
   const [user, setUser] = useRecoilState(userState);
 
+  const profile_img_url = "https://ui-avatars.com/api/?name=" + user?.email || "User";
   const [menu, setMenu] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const handleClick = () => {
@@ -114,23 +116,23 @@ export default function Header({ title }: { title: any }) {
                   onClick={handleDropdown}
                 >
                   <span className="sr-only">Open user menu</span>
-                  <img
+                  <Image
                     className="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    src={profile_img_url}
+                    width={32}
+                    height={32}
                     alt=""
                   />
                 </button>
                 <button
                   onClick={handleDropdown}
-                  className={`${
-                    dropdown ? ` ` : `hidden`
-                  } fixed inset-0 w-full h-full cursor-default`}
+                  className={`${dropdown ? ` ` : `hidden`
+                    } fixed inset-0 w-full h-full cursor-default`}
                 ></button>
               </div>
               <div
-                className={`${
-                  dropdown ? `block` : `hidden`
-                } origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                className={`${dropdown ? `block` : `hidden`
+                  } origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none`}
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="user-menu-button"
@@ -171,11 +173,10 @@ export default function Header({ title }: { title: any }) {
       {/* Sidebar */}
       <div className="relative sm:hidden">
         <div
-          className={`${
-            menu
+          className={`${menu
               ? `transform translate-x-0 transition ease-in-out duration-200`
               : `transform -translate-x-full transition ease-in-out duration-200`
-          } fixed top-0 left-0 h-full bg-sky-800  rounded-l-none rounded-lg shadow-xl z-10`}
+            } fixed top-0 left-0 h-full bg-sky-800  rounded-l-none rounded-lg shadow-xl z-10`}
         >
           <div className="flex flex-col">
             <div className="flex-shrink border-b border-sky-500 px-6 py-[13px]">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -60,10 +61,11 @@ export default function PatientsLists({ data }: { data: any }) {
                         <td className="px-8 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="flex-shrink-0 h-10 w-10">
-                              <img
-                                className="h-10 w-10 rounded-full"
-                                src={img}
-                                loading="lazy"
+                              <Image
+                                className="h-8 w-8 rounded-full"
+                                src={"https://ui-avatars.com/api/?name=" + item?.name}
+                                width={32}
+                                height={32}
                                 alt=""
                               />
                             </div>
