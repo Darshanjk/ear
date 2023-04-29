@@ -21,6 +21,9 @@ It is supposed that you open this repo in github codespace or gitpod.
     # alembic revision --autogenerate -m "initial database schema migraion" -> makes migrations files
     $ alembic upgrade head
 
+    # start bash inside a conainer
+    $ docker exec -it <container_name> bash
+
 
 ```
 
